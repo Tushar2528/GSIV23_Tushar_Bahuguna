@@ -1,7 +1,15 @@
 import detailsStyles from "./details.module.css";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from "react-router-dom";
 
 
-export default function Details(props) {
+export default function Details({currentMovie}) {
+
+    const navigate = useNavigate();
+
+    const gotoListPage = () => {
+        navigate('/');
+    }
 
 
 
@@ -13,6 +21,8 @@ export default function Details(props) {
                     <div class="container-fluid">
                         <form class="d-flex" role="search">
                             <p><b>Movie Details</b></p>
+                            <button onClick={gotoListPage}><ArrowBackIcon  className={detailsStyles.arrowIcon}/></button>
+                            
                             {/* <a class="navbar-brand" href="#">
                                 <img src={home} alt="Bootstrap" width="30" height="24" className={listStyles.image}/>
                             </a> */}
@@ -26,10 +36,10 @@ export default function Details(props) {
                     <img src="" alt="Poster"></img>
                 </div>
                 <div className={detailsStyles.details}>
-                    <div><p><h3>Movie Title (Rating)</h3></p></div>
-                    <div>Year | Length | Director</div>
-                    <div>Cast : Actor 1, Actor 2, ...</div>
-                    <div>Description : Police officer Sedat raids a derelict apartment squatted by a young couple. The man is killed, the young woman, Ayşe, escapes. When her friends and relatives offer no help, Ayşe is forced to steal cash and a car from her father and flee town like an outlaw. The chase goes deeper into the wild. Along with three men he has recruited, Sedat is pursuing her, out to kill in the name of honour. Taking off from the suburbs of Anatolia, Av: The Hunt continues reaching breath-taking natural landscapes, and recounts how a young woman is pulled into spiral of violence while trying to escape the patriarchal society she lives in.</div>
+                    <div><p><h3>{currentMovie.original_title}  (Rating :{currentMovie.vote_average})</h3></p></div>
+                    <div>{currentMovie.release_date} | Votes : {currentMovie.vote_count}</div>
+                    <div>Language : {currentMovie.original_language}</div>
+                    <div>{currentMovie.overview}</div>
 
 
                             

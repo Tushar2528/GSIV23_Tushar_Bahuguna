@@ -1,40 +1,26 @@
 import { useEffect, useState, useRef } from "react";
 import listStyles from "./listStyles.module.css";
 import { useNavigate} from "react-router-dom";
+import BungalowIcon from '@mui/icons-material/Bungalow';
+import SearchIcon from '@mui/icons-material/Search';
 // import home from "../../images/home.png";
 
 
-export default function List(){
-
-    const navigate = useNavigate();
-
-    const [movieList, setMovieList] = useState([]);
-    const search = useRef(null);
-
+export default function List({fetchData, search, searchMovie, movieList, movieDetails}){
 
     
-    const fetchData = async () => {
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=d5038a4b26b9b6d730afe88b64adc740");
-        const data = await response.json();
-        setMovieList(data.results);
-    }
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
 
     }, []);
 
-    const searchMovie = async () => {
-        const movie = search.current.value;
-        
-        if (movie.trim() !== "") {
-            const movieRes = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=d5038a4b26b9b6d730afe88b64adc740&query=${movie}`);
-            const movieData = await movieRes.json();
-            setMovieList(movieData.results);
-        } else {
-            // Fetch and set the list of all movies when search input is empty
-            fetchData();
-        }
+    const showDetails = (movie) => {
+        movieDetails(movie);
+        console.log(movie.original_title);
+        navigate('/details');
     }
     
 
@@ -44,8 +30,18 @@ export default function List(){
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid">
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" style={{width: 600}} type="search" placeholder="Search" ref={search} onChange={searchMovie} aria-label="Search" />
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <SearchIcon className={listStyles.searchIcon} />
+                            <input class="form-control me-2" 
+                                                style={{width: 600}} type="search" 
+                                                placeholder="Search" 
+                                                ref={search} 
+                                                onChange={searchMovie} 
+                                                aria-label="Search" >
+                                                    
+                            </input>   
+                                             
+                            {/* <button class="btn btn-outline-success" type="submit">Search</button> */}
+                            <BungalowIcon className={listStyles.icons} ></BungalowIcon>
                             {/* <a class="navbar-brand" href="#">
                                 <img src={home} alt="Bootstrap" width="30" height="24" className={listStyles.image}/>
                             </a> */}
@@ -62,7 +58,7 @@ export default function List(){
                             <img src = {movie.poster_path} alt="poster"></img>
                         </div>
                         <div className={listStyles.details}>
-                            <div>
+                            <div onClick={()=>showDetails(movie)}>
                                 <p><b>{movie.original_title}</b></p>
                                 <p>Rating : <b>{movie.vote_average}</b></p>
                             </div>

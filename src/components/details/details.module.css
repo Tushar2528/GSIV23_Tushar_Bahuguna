@@ -7,12 +7,18 @@ p{
     box-shadow: 0px 0px 15px 1px #888888;
 }
 
+.arrowIcon{
+    position: absolute;
+    right: 5%;
+    top: 30%;
+}
+
 .movieCard{
     position: absolute;
     top: 10%;
     height: auto  ;
     width: 100%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
     /* flex-direction: column; */
     gap: 2%;
@@ -22,7 +28,7 @@ p{
 .image{
     height: 100%;
     width: 20%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 
 
 }
