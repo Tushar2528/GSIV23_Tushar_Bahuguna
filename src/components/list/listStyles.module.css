@@ -1,0 +1,72 @@
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.movies{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+    padding: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 2%;
+    overflow: scroll;
+
+}
+
+.card{
+    height: 55%;
+    width: 18%;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    align-items: center;
+    font-size:medium;
+    background-color: #DFDFDF;
+}
+
+
+
+.image{
+    height: 60%;
+    width: 100%;
+    border: 2px solid black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #DFDFDF;
+}
+.image img{
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.details{
+    height: 38%;
+    width: 97%;
+    border: 2px solid black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: white;
+    
+
+}
+
+.details div{
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.details > p{
+    text-align: left;
+    
+    margin-left: 2%;
+}
