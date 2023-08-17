@@ -9,6 +9,7 @@ export default function Details() {
     const navigate = useNavigate();
     const currentMovie = useSelector((state) => state.movies.movie);
 
+    // function to navigate back to the movie listing page
     const gotoListPage = () => {
         navigate('/');
     }

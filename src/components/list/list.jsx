@@ -12,10 +12,10 @@ import SearchIcon from '@mui/icons-material/Search';
 export default function List({fetchData, search, searchMovie, movieDetails, page}){
 
     
-
+    //useNavigate hook to handle route change on movie click
     const navigate = useNavigate();
 
-
+    //useSelector hook to fetch current states from the redux store
     const movieList = useSelector((state) => state.movies.movieList);
     const searchQuery = useSelector((state) => state.movies.searchQuery);
 
@@ -27,6 +27,8 @@ export default function List({fetchData, search, searchMovie, movieDetails, page
 
     },[page, fetchData,search]);
 
+
+    //function to handle movie details page on click
     const showDetails = (movie) => {
         movieDetails(movie);
         console.log(movie.original_title);

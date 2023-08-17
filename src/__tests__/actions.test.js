@@ -1,5 +1,7 @@
 import { updateMovies } from '../redux/movies';
 
+
+//Unit test case to check the reducer action functionlaity of redux
 describe('Redux Actions', () => {
   it('should create an action to update movies', () => {
     const movies = [
