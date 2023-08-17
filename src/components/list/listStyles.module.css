@@ -19,7 +19,7 @@ body{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 28%; 
+    left: 550px; 
     pointer-events: none;
 }
 
@@ -105,3 +105,19 @@ body{
     text-overflow: ellipsis; /* Display ellipsis for overflowed text */
     margin-left: 2%;
 }
+
+
+
+@media (max-width: 700px) {
+    .card {
+        height: 55%;
+        width: 40%;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 1100px) {
+    .card {
+        height: 55%;
+        width: 35%;
+    }
+} 
