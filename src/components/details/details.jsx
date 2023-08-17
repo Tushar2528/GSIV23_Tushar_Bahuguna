@@ -1,11 +1,13 @@
 import detailsStyles from "./details.module.css";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
-export default function Details({currentMovie}) {
+export default function Details() {
 
     const navigate = useNavigate();
+    const currentMovie = useSelector((state) => state.movies.movie);
 
     const gotoListPage = () => {
         navigate('/');
@@ -21,11 +23,9 @@ export default function Details({currentMovie}) {
                     <div class="container-fluid">
                         <form class="d-flex" role="search">
                             <p><b>Movie Details</b></p>
-                            <button onClick={gotoListPage}><ArrowBackIcon  className={detailsStyles.arrowIcon}/></button>
+                            <div onClick={gotoListPage}><ArrowBackIcon  className={detailsStyles.arrowIcon}/></div>
                             
-                            {/* <a class="navbar-brand" href="#">
-                                <img src={home} alt="Bootstrap" width="30" height="24" className={listStyles.image}/>
-                            </a> */}
+                            
                         </form>
                     </div>
                 </nav>

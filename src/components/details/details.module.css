@@ -16,7 +16,7 @@ p{
 .movieCard{
     position: absolute;
     top: 10%;
-    height: auto  ;
+    height: 40%  ;
     width: 100%;
     /* border: 2px solid black; */
     display: flex;
@@ -27,7 +27,8 @@ p{
 
 .image{
     height: 100%;
-    width: 20%;
+    width: 15%;
+    background-color: #DFDFDF;
     /* border: 2px solid black; */
 
 
